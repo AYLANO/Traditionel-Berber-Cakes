@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antique Bakery Cafe HTML Template by Tooplate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&family=Oswald:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.min.css"> <!-- fontawesome -->
+    <link rel="stylesheet" href="css/tailwind.css">
+    <link rel="stylesheet" href="css/tooplate-antique-cafe.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <body>
+      
+    
+        <div id="content-container" style="padding-top: 100px;margin: 50px; background-color: rgba(255, 255, 255, 0.5);">
+            <h1 class="text-center mt-10">Statistiques de vente</h1>
+    
+            <!-- Graphique circulaire -->
+            <div class="graph-container">
+                <h2 class="text-center">Pourcentage de vente pour chaque produit</h2>
+                <div style="width: 300px; height: 300px;">
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+    
+            <!-- Graphique linéaire -->
+            <div class="graph-container">
+                <h2 class="text-center">Nombre de ventes par jour</h2>
+                <div style="width: 300px; height: 300px;">
+                    <canvas id="lineChart"></canvas>
+                </div>
+            </div>
+    
+            <!-- Nuage de points -->
+            <div class="graph-container">
+                <h2 class="text-center">Nombre de clients par jour</h2>
+                <div style="width: 300px; height: 300px;">
+                    <canvas id="barChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="index.html" class="flex justify-center items-center bg-black bg-opacity-70 py-6 px-8 rounded-lg font-semibold tm-text-2xl tm-text-gold hover:text-gray-200 transition">
+                <span>Revenire à l'acceuil</span>                        
+            </a>        </div>
+
+
+
+<script>
+    // Données de test
+    var dataPie = {
+        labels: ["Lesfenj", "Msemen", "Thighrifin", "Msemen", "Thamthunt", "Makroud", "Aghrom", "Aghrom lehwal"],
+        datasets: [{
+            data: [18, 12, 10,13,25,10,7,5],
+            backgroundColor: ["#32CD32", "#800080", "#FFA500", "#20B2AA", "#DC143C", "#FF4500", "#2E8B57", "#8B4513"]
+        }]
+    };
+
+    var dataLine = {
+        labels: ["lundi", "mardi", "mercredi", "jeudi", "vendredi","samedi","dimanche"],
+        datasets: [{
+            label: "Nombre de ventes par jour",
+            borderColor: "#FF6384",
+            data: [12, 15, 11, 25, 20, 35,27],
+            fill: false
+        }]
+    };
+
+    var dataBar = {
+            labels: ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"],
+            datasets: [{
+                label: "Nombre de clients par jour",
+                backgroundColor: "#4CAF50",
+                data: [30, 25, 40, 35, 50, 45, 20]
+            }]
+        };
+
+        // Création du graphique à barres
+       
+   
+    
+
+    // Configuration des options des graphiques
+    var options = {
+        responsive: true,
+        maintainAspectRatio: false
+    };
+
+    // Création des graphiques
+    var ctxPie = document.getElementById('pieChart').getContext('2d');
+    new Chart(ctxPie, { type: 'pie', data: dataPie, options: options });
+
+    var ctxLine = document.getElementById('lineChart').getContext('2d');
+    new Chart(ctxLine, { type: 'line', data: dataLine, options: options });
+
+    var ctxBar = document.getElementById('barChart').getContext('2d');
+        new Chart(ctxBar, { type: 'bar', data: dataBar, options: options });
+</script>
+
+<style>
+    .graph-container {
+        display: inline-block;
+        margin: 20px;
+        text-align: center;
+    }
+</style>
+<script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/jquery.singlePageNav.min.js"></script>
+</body>
+</html>
